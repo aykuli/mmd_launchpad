@@ -39,6 +39,16 @@ echo $SSH_AGENT_SOCK
 У меня нет этой перменной, однако работает.
 Также для вклчения возможности аутентификации через ssh-ключи, должно быть вклчена возможноть [`SSH Public Key Authentication`](https://www.ssh.com/academy/ssh/public-key-authentication).
 
+## Backup DB
+
+On local machine:
+
+```shell
+ssh mmd 'docker exec mmd_db pg_dump -U yourpersonalmanager --dbname lifelongdata > /home/aynur/lifelongdata_backup_`date +%d_%m_%Y`.sql'
+
+scp mmd:/home/aynur/lifelongdata_backup_04_01_2024.sql .
+```
+
 ## Resources
 
 1. <https://web.archive.org/web/20210506080335/https://mah.everybody.org/docs/ssh>
