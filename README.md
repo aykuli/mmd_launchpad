@@ -9,7 +9,7 @@
 
 ## SSH
 
-scp .env root@185.221.213.49:/home/aynur/mmd_launchpad
+scp .env root@addr:/home/user/directory
 
 I have an error on my server:
 It turned out that  ssh-agent is not started automatically when I log in.
@@ -22,9 +22,9 @@ Please make sure you have the correct access rights
 and the repository exists.
 
 > ssh-agent bash
-root@host1866467-1:/home/aynur/
-> ssh-add ~/.ssh/2023_12_15_github
-Identity added: /root/.ssh/2023_12_15_github (aykuli@ya.ru)
+root@host1866467-1:/home/user/
+> ssh-add ~/.ssh/pub_key_name
+Identity added: /root/.ssh/pub_key_name (aykuli@ya.ru)
 ```
 
 ssh-agent - программа, которая отслеживает идентификационный ключи пользователя и их passphrases.
@@ -44,9 +44,9 @@ echo $SSH_AGENT_SOCK
 On local machine:
 
 ```shell
-ssh mmd 'docker exec mmd_db pg_dump -U yourpersonalmanager --dbname lifelongdata > /home/aynur/lifelongdata_backup_`date +%d_%m_%Y`.sql'
+ssh mmd 'docker exec container_name pg_dump -U yourpersonalmanager --dbname somedata > /home/user/data_backup_`date +%d_%m_%Y`.sql'
 
-scp mmd:/home/aynur/lifelongdata_backup_04_01_2024.sql .
+scp mmd:/home/aynur/backup.sql .
 ```
 
 ## Resources
